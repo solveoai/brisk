@@ -77,7 +77,7 @@ const ProcessSteps: React.FC = () => {
     {
       number: "03",
       title: "Accelerate",
-      mainPhrase: "business growth.",
+      mainPhrase: "business for growth.",
       subtitle: "We transform your company to achieve measurable ROI in 90 days.",
       icon: (
         <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
