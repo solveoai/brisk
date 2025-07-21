@@ -49,48 +49,39 @@ const ProcessSteps: React.FC = () => {
     {
       number: "01",
       title: "Audit",
-      subtitle: "Uncover $2M+ in hidden inefficiencies",
-      metric: "2.3M",
-      metricLabel: "AVERAGE SAVINGS",
-      description: "Deep analysis of your entire operation to identify profit leaks",
+      subtitle: "We analyze your entire operation to uncover hidden inefficiencies and profit leaks.",
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="30" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
-          <circle cx="40" cy="40" r="20" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-          <circle cx="40" cy="40" r="10" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="3" fill="currentColor"/>
+        <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+          <circle cx="48" cy="48" r="36" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+          <circle cx="48" cy="48" r="24" stroke="currentColor" strokeWidth="1.5" opacity="0.4"/>
+          <circle cx="48" cy="48" r="12" stroke="currentColor" strokeWidth="1.5" opacity="0.6"/>
+          <circle cx="48" cy="48" r="4" fill="currentColor"/>
         </svg>
       )
     },
     {
       number: "02",
       title: "Implement",
-      subtitle: "Deploy systems that scale your output 5x",
-      metric: "5x",
-      metricLabel: "OUTPUT INCREASE",
-      description: "Custom automation systems deployed with zero disruption",
+      subtitle: "We deploy custom automation systems that scale your output without disruption.",
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <rect x="25" y="25" width="30" height="30" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
-          <rect x="30" y="30" width="20" height="20" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-          <rect x="35" y="35" width="10" height="10" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="2" fill="currentColor"/>
+        <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+          <rect x="24" y="24" width="48" height="48" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+          <rect x="32" y="32" width="32" height="32" stroke="currentColor" strokeWidth="1.5" opacity="0.4"/>
+          <rect x="40" y="40" width="16" height="16" stroke="currentColor" strokeWidth="1.5" opacity="0.6"/>
+          <rect x="44" y="44" width="8" height="8" fill="currentColor"/>
         </svg>
       )
     },
     {
       number: "03",
       title: "Accelerate",
-      subtitle: "Achieve 85% faster operations in 90 days",
-      metric: "85%",
-      metricLabel: "FASTER OPERATIONS",
-      description: "Full transformation with measurable ROI in just 3 months",
+      subtitle: "We transform your operations to achieve measurable results in 90 days.",
       icon: (
-        <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <path d="M40 20 L55 40 L40 60 L25 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
-          <path d="M40 28 L48 40 L40 52 L32 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-          <path d="M40 34 L44 40 L40 46 L36 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="2" fill="currentColor"/>
+        <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+          <path d="M48 24 L66 48 L48 72 L30 48 Z" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
+          <path d="M48 32 L60 48 L48 64 L36 48 Z" stroke="currentColor" strokeWidth="1.5" opacity="0.4"/>
+          <path d="M48 40 L54 48 L48 56 L42 48 Z" stroke="currentColor" strokeWidth="1.5" opacity="0.6"/>
+          <circle cx="48" cy="48" r="3" fill="currentColor"/>
         </svg>
       )
     }
@@ -102,8 +93,8 @@ const ProcessSteps: React.FC = () => {
         <div className="sticky top-0 h-screen w-full flex items-center justify-center">
           <div className="w-full h-full flex flex-col justify-center items-center text-white px-4 md:px-8 lg:px-12">
             
-            {/* Progress circles - matching exact style */}
-            <div className={`mb-24 transition-opacity duration-700 ${
+            {/* Progress circles at top */}
+            <div className={`mb-20 transition-opacity duration-700 ${
               isVisible ? 'opacity-100' : 'opacity-0'
             }`}>
               <div className="flex items-center gap-0">
@@ -137,10 +128,11 @@ const ProcessSteps: React.FC = () => {
               </div>
             </div>
 
-            {/* Central content */}
-            <div className="text-center max-w-4xl mx-auto">
+            {/* Main content */}
+            <div className="w-full max-w-5xl mx-auto text-center">
+              
               {/* Icon */}
-              <div className="flex justify-center mb-12">
+              <div className="flex justify-center mb-16">
                 <div className={`text-blue-400 transition-all duration-700 ${
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
                 }`}>
@@ -148,27 +140,17 @@ const ProcessSteps: React.FC = () => {
                 </div>
               </div>
 
-              {/* Metric */}
-              <div className={`mb-8 transition-all duration-700 ${
+              {/* Title - matching the style */}
+              <h2 className={`text-5xl md:text-6xl lg:text-7xl font-light mb-8 transition-all duration-700 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                <div className="text-6xl md:text-7xl font-bold text-blue-400">
-                  {steps[currentStep]?.metric}
-                </div>
-                <div className="text-sm text-gray-400 uppercase tracking-wider mt-2">
-                  {steps[currentStep]?.metricLabel}
-                </div>
-              </div>
-
-              {/* Title */}
-              <h2 className={`text-5xl md:text-6xl font-light text-white mb-6 transition-all duration-700 delay-100 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>
-                {steps[currentStep]?.title}
+                <span className="text-white">We </span>
+                <span className="text-blue-400">{steps[currentStep]?.title} </span>
+                <span className="text-white">your operations.</span>
               </h2>
 
               {/* Subtitle */}
-              <p className={`text-xl md:text-2xl text-gray-400 font-light transition-all duration-700 delay-200 ${
+              <p className={`text-xl text-gray-400 max-w-3xl mx-auto transition-all duration-700 delay-100 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
                 {steps[currentStep]?.subtitle}
@@ -176,10 +158,10 @@ const ProcessSteps: React.FC = () => {
             </div>
 
             {/* Bottom progress dots */}
-            <div className={`mt-24 transition-all duration-700 delay-300 ${
+            <div className={`mt-20 transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100' : 'opacity-0'
             }`}>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3">
                 {[0, 1, 2].map((index) => (
                   <div
                     key={index}
@@ -191,11 +173,6 @@ const ProcessSteps: React.FC = () => {
                   />
                 ))}
               </div>
-
-              {/* Description text */}
-              <p className="text-gray-400 text-center max-w-md mx-auto">
-                {steps[currentStep]?.description}
-              </p>
             </div>
           </div>
         </div>
