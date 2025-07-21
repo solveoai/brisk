@@ -14,7 +14,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     // Logo fade in
     const timer1 = setTimeout(() => {
       setLogoVisible(true);
-    }, 300);
+    }, 500);
 
     // Logo animation sequence
     const timer2 = setTimeout(() => {
