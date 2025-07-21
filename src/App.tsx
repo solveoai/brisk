@@ -11,11 +11,14 @@ import FooterSection from './components/FooterSection';
 import ContactDrawer from './components/ContactDrawer';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import NavigationDots from './components/NavigationDots';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState('intro');
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms'>('home');
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -59,6 +62,16 @@ function App() {
     }
   }, []);
 
+  // Show privacy policy page
+  if (currentPage === 'privacy') {
+    return <PrivacyPolicy onBack={() => setCurrentPage('home')} />;
+  }
+
+  // Show terms of service page
+  if (currentPage === 'terms') {
+    return <TermsOfService onBack={() => setCurrentPage('home')} />;
+  }
+
   return (
     <div className="relative w-screen bg-gray-900" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
       <BackgroundCanvas />
@@ -84,7 +97,11 @@ function App() {
           <ProcessSteps />
           <StatsSection />
           <PartnershipSection onContactClick={() => setIsContactOpen(true)} />
-          <FooterSection onContactClick={() => setIsContactOpen(true)} />
+          <FooterSection 
+            onContactClick={() => setIsContactOpen(true)}
+            onPrivacyClick={() => setCurrentPage('privacy')}
+            onTermsClick={() => setCurrentPage('terms')}
+          />
         </div>
 
         <ContactDrawer 

@@ -4,9 +4,11 @@ import Logo from './Logo';
 
 interface FooterSectionProps {
   onContactClick: () => void;
+  onPrivacyClick: () => void;
+  onTermsClick: () => void;
 }
 
-const FooterSection: React.FC<FooterSectionProps> = ({ onContactClick }) => {
+const FooterSection: React.FC<FooterSectionProps> = ({ onContactClick, onPrivacyClick, onTermsClick }) => {
   return (
     <div className="snap-always snap-center">
       <div className="relative h-screen min-h-screen w-full flex">
@@ -66,16 +68,16 @@ const FooterSection: React.FC<FooterSectionProps> = ({ onContactClick }) => {
 
                 {/* Center Column - Terms & Privacy */}
                 <div className="flex flex-col items-center gap-4">
-                  <a target="_blank" className="cursor-pointer" href="#terms">
+                  <button onClick={onTermsClick} className="cursor-pointer">
                     <p className="font-medium text-gray-400 uppercase hover:text-white transition-colors text-xs tracking-wide">
                       TERMS & CONDITIONS
                     </p>
-                  </a>
-                  <a target="_blank" className="cursor-pointer" href="#privacy">
+                  </button>
+                  <button onClick={onPrivacyClick} className="cursor-pointer">
                     <p className="font-medium text-gray-400 uppercase hover:text-white transition-colors text-xs tracking-wide">
                       PRIVACY POLICY
                     </p>
-                  </a>
+                  </button>
                 </div>
 
                 {/* Right Column - Social */}
@@ -154,12 +156,12 @@ const FooterSection: React.FC<FooterSectionProps> = ({ onContactClick }) => {
                   </div>
                   
                   <div className="flex flex-col gap-2 items-end">
-                    <a target="_blank" className="cursor-pointer" href="#terms">
+                    <button onClick={onTermsClick} className="cursor-pointer">
                       <p className="font-medium text-gray-400 uppercase hover:text-white text-xs tracking-wide">TERMS</p>
-                    </a>
-                    <a target="_blank" className="cursor-pointer" href="#privacy">
+                    </button>
+                    <button onClick={onPrivacyClick} className="cursor-pointer">
                       <p className="font-medium text-gray-400 uppercase hover:text-white text-xs tracking-wide">PRIVACY</p>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
