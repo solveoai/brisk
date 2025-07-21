@@ -25,10 +25,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({ onContactClick }) => {
               
               {/* Brisk Logo - top right positioned */}
               <div className="hidden lg:block">
-                <div className="flex items-center text-white">
-                  <Logo className="w-44 h-10" variant="light" />
-                  <span className="text-base font-medium whitespace-nowrap">brisk automations</span>
-                </div>
+                <Logo className="w-48 h-12" variant="light" />
               </div>
             </div>
 

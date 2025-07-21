@@ -63,8 +63,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         }`}
       >
         <Logo 
-          className="w-44 h-10" 
+          className="w-48 h-12" 
           variant="light"
+          animated={logoVisible && (animationPhase === 'logoFadeIn' || animationPhase === 'logoScale')}
         />
       </div>
 
