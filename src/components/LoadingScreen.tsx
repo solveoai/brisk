@@ -48,14 +48,14 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           logoVisible ? 'opacity-100' : 'opacity-0'
         } ${
           animationPhase === 'logoFadeIn' ? 
-            'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-x-0.5 scale-200' :
+            'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-x-8 scale-200' :
           animationPhase === 'moveToHeader' ?
             'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0 scale-100' :
             'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0 scale-100 opacity-0'
         }`}
       >
         <Logo 
-          className="w-48 h-12" 
+          className="w-64 h-16" 
           variant="light"
           animated={logoVisible && animationPhase === 'logoFadeIn'}
         />
