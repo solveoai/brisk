@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BlurText } from '@/components/ui/animated-blur-text';
+import { FlipText } from '@/components/ui/flip-text';
 
-// BlurText morphing animation
+// MorphingText component with FlipText animation
 const MorphingText = ({ texts, className }: { texts: string[], className: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [key, setKey] = useState(0);
@@ -16,14 +16,16 @@ const MorphingText = ({ texts, className }: { texts: string[], className: string
   }, [texts.length]);
 
   return (
-    <BlurText
+    <FlipText
       key={key}
-      text={texts[currentIndex]}
+      word={texts[currentIndex]}
       className={className}
-      delay={100}
-      animateBy="words"
-      direction="bottom"
-      stepDuration={0.4}
+      duration={0.6}
+      delayMultiple={0.1}
+      framerProps={{
+        hidden: { rotateX: -90, opacity: 0 },
+        visible: { rotateX: 0, opacity: 1 },
+      }}
     />
   );
 };
