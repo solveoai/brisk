@@ -28,8 +28,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     console.log('Form submitted:', formData);
     // Handle form submission here
     onClose();
@@ -49,12 +48,12 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
       <div className={`fixed right-0 top-0 h-screen w-full lg:w-[40vw] px-2 pb-4 flex flex-row items-center justify-center text-gray-900 transform z-50 transition-transform duration-300 ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
-        <div className="shadow-2xl rounded-xl w-[96%] md:w-[98%] lg:w-full h-[90%] bg-blue-50 overflow-hidden">
+        <div className="shadow-2xl rounded-xl w-[96%] md:w-[98%] lg:w-full h-[90%] bg-gradient-to-br from-blue-50/95 to-white/95 backdrop-blur-sm overflow-hidden">
           <div className="flex flex-col px-4 md:px-6 py-2">
             <div className="flex flex-row justify-end">
               <button 
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-full"
+                className="p-2 hover:bg-blue-100/50 rounded-full transition-colors"
               >
                 <X size={24} className="text-gray-600" />
               </button>
@@ -75,7 +74,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     <input 
                       type="text" 
                       placeholder="Name" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all" 
                       name="name" 
                       value={formData.name}
                       onChange={handleInputChange}
@@ -88,7 +87,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     <input 
                       type="email" 
                       placeholder="Email" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all" 
                       name="email" 
                       value={formData.email}
                       onChange={handleInputChange}
@@ -103,7 +102,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                   <input 
                     type="text" 
                     placeholder="Enter role" 
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all" 
                     name="role" 
                     value={formData.role}
                     onChange={handleInputChange}
@@ -118,7 +117,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     <input 
                       type="text" 
                       placeholder="Enter company name" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all" 
                       name="company_name" 
                       value={formData.company_name}
                       onChange={handleInputChange}
@@ -131,7 +130,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     <input 
                       type="url" 
                       placeholder="Enter company website" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all" 
                       name="company_website" 
                       value={formData.company_website}
                       onChange={handleInputChange}
@@ -146,7 +145,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     </div>
                     <select 
                       name="company_size" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                       value={formData.company_size}
                       onChange={handleInputChange}
                     >
@@ -164,7 +163,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     </div>
                     <select 
                       name="companys_revenue" 
-                      className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                       value={formData.companys_revenue}
                       onChange={handleInputChange}
                     >
@@ -184,7 +183,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                   </div>
                   <select 
                     name="project_budget" 
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                     value={formData.project_budget}
                     onChange={handleInputChange}
                   >
@@ -202,7 +201,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                   </div>
                   <select 
                     name="services_needed" 
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all"
                     value={formData.services_needed}
                     onChange={handleInputChange}
                   >
@@ -221,19 +220,19 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                     name="message" 
                     rows={7} 
                     placeholder="Tell us about your automation challenges and goals" 
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                    className="border border-gray-300 rounded-md px-3 py-2 bg-white/70 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all resize-none"
                     value={formData.message}
                     onChange={handleInputChange}
                   />
                 </div>
 
                 <button 
-                  type="submit" 
+                  onClick={handleSubmit}
                   className="w-fit text-gray-900 cursor-pointer py-2 px-4 rounded-full border border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-300"
                 >
                   Send inquiry
                 </button>
-              </form>
+              </div>
               <div className="h-[100px] w-full"></div>
             </div>
           </div>
