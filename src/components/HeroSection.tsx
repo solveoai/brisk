@@ -1,31 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { GradualSpacing } from '@/components/ui/gradual-spacing';
-// MorphingText component with GradualSpacing animation
+
+// Simple fade animation for morphing text
 const MorphingText = ({ texts, className }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [key, setKey] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-      setKey(prev => prev + 1); // Force re-render for animation
-    }, 3000); // Increased time to allow animation to complete
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+        setIsAnimating(false);
+      }, 200);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [texts.length]);
 
   return (
-    <GradualSpacing
-      key={key} // Forces new animation on each text change
-      className={className}
-      text={texts[currentIndex]}
-      duration={0.4}
-      delayMultiple={0.08}
-      framerProps={{
-        hidden: { opacity: 0, x: -30, scale: 0.8 },
-        visible: { opacity: 1, x: 0, scale: 1 },
-      }}
-    />
+    <div className={`${className} transition-all duration-300 ${
+      isAnimating ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
+    }`}>
+      {texts[currentIndex]}
+    </div>
   );
 };
 const HeroSection = ({ onContactClick }) => {
