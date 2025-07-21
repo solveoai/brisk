@@ -28,7 +28,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
           --brand: ${brandColor};
           --blade-w: 1.65em;
           --blade-h: 0.9em;
-          --mark-width: 1.2em; /* Much narrower mark */
+          --mark-width: 1.5em; /* Much narrower mark */
           --cut: 53.2%;
           --gap: 0.1em;
           --slide-dur: 0.5s;
