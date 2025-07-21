@@ -55,10 +55,10 @@ const ProcessSteps: React.FC = () => {
       description: "Deep analysis of your entire operation to identify profit leaks",
       icon: (
         <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="30" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.3"/>
-          <circle cx="40" cy="40" r="20" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.5"/>
-          <circle cx="40" cy="40" r="10" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="3" fill="rgb(96, 165, 250)"/>
+          <circle cx="40" cy="40" r="30" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
+          <circle cx="40" cy="40" r="20" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+          <circle cx="40" cy="40" r="10" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
+          <circle cx="40" cy="40" r="3" fill="currentColor"/>
         </svg>
       )
     },
@@ -71,10 +71,10 @@ const ProcessSteps: React.FC = () => {
       description: "Custom automation systems deployed with zero disruption",
       icon: (
         <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <rect x="25" y="25" width="30" height="30" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.3"/>
-          <rect x="30" y="30" width="20" height="20" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.5"/>
-          <rect x="35" y="35" width="10" height="10" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="2" fill="rgb(96, 165, 250)"/>
+          <rect x="25" y="25" width="30" height="30" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
+          <rect x="30" y="30" width="20" height="20" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+          <rect x="35" y="35" width="10" height="10" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
+          <circle cx="40" cy="40" r="2" fill="currentColor"/>
         </svg>
       )
     },
@@ -87,10 +87,10 @@ const ProcessSteps: React.FC = () => {
       description: "Full transformation with measurable ROI in just 3 months",
       icon: (
         <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-          <path d="M40 20 L55 40 L40 60 L25 40 Z" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.3"/>
-          <path d="M40 28 L48 40 L40 52 L32 40 Z" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.5"/>
-          <path d="M40 34 L44 40 L40 46 L36 40 Z" stroke="rgb(96, 165, 250)" strokeWidth="1" opacity="0.7"/>
-          <circle cx="40" cy="40" r="2" fill="rgb(96, 165, 250)"/>
+          <path d="M40 20 L55 40 L40 60 L25 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
+          <path d="M40 28 L48 40 L40 52 L32 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+          <path d="M40 34 L44 40 L40 46 L36 40 Z" stroke="currentColor" strokeWidth="1" opacity="0.7"/>
+          <circle cx="40" cy="40" r="2" fill="currentColor"/>
         </svg>
       )
     }
@@ -99,8 +99,8 @@ const ProcessSteps: React.FC = () => {
   return (
     <div className="snap-always snap-center">
       <div ref={containerRef} className="relative h-[200vh] w-full">
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center" style={{ backgroundColor: 'rgb(30, 41, 59)' }}>
-          <div className="w-full h-full flex flex-col justify-center items-center px-4 md:px-8 lg:px-12">
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+          <div className="w-full h-full flex flex-col justify-center items-center text-white px-4 md:px-8 lg:px-12">
             
             {/* Progress circles - matching exact style */}
             <div className={`mb-24 transition-opacity duration-700 ${
@@ -193,7 +193,7 @@ const ProcessSteps: React.FC = () => {
               </div>
 
               {/* Description text */}
-              <p className="text-gray-500 text-center max-w-md mx-auto">
+              <p className="text-gray-400 text-center max-w-md mx-auto">
                 {steps[currentStep]?.description}
               </p>
             </div>
