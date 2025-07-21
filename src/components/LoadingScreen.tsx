@@ -31,7 +31,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const containerClasses = [
     'absolute transition-all duration-700 ease-in-out',
     logoVisible ? 'opacity-100' : 'opacity-0',
-    phase === 'fadeIn' && 'top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/2 scale-500',
+    phase === 'fadeIn' && 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[3]',
     phase === 'moveToHeader' &&
       'top-4 left-4 md:top-4 md:left-8 lg:top-4 lg:left-12 transform translate-x-0 translate-y-0 scale-100',
     phase === 'fadeOut' &&
