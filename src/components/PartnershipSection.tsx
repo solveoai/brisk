@@ -27,10 +27,10 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({ onContactClick 
             {/* Minimalist CTA */}
             <button
               onClick={onContactClick}
-              className="group relative overflow-hidden"
+              className="group relative overflow-hidden rounded-full"
             >
-              {/* Animated background */}
-              <div className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              {/* Animated background - also rounded */}
+              <div className="absolute inset-0 bg-white rounded-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
               
               {/* Button content */}
               <div className="relative flex items-center gap-4 px-8 py-4 border border-white/30 rounded-full">
