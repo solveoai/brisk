@@ -3,16 +3,25 @@ import { ArrowUpRight } from 'lucide-react';
 
 const StatsSection: React.FC = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState([0, 0, 0]);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const targetNumbers = [500, 150, 50];
   const sectionRef = useRef<HTMLDivElement>(null);
+  const animationTimeouts = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry.isIntersecting && !isAnimating) {
+          // Reset numbers to 0 before animating
+          setAnimatedNumbers([0, 0, 0]);
+          setIsAnimating(true);
           animateNumbers();
+        } else if (!entry.isIntersecting) {
+          // Reset when section is out of view
+          setIsAnimating(false);
+          // Clear any ongoing animations
+          animationTimeouts.current.forEach(timeout => clearTimeout(timeout));
+          animationTimeouts.current = [];
         }
       },
       { threshold: 0.5 }
@@ -22,8 +31,12 @@ const StatsSection: React.FC = () => {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
-  }, [hasAnimated]);
+    return () => {
+      observer.disconnect();
+      // Clear timeouts on cleanup
+      animationTimeouts.current.forEach(timeout => clearTimeout(timeout));
+    };
+  }, [isAnimating]);
 
   const animateNumbers = () => {
     targetNumbers.forEach((target, index) => {
@@ -34,6 +47,13 @@ const StatsSection: React.FC = () => {
         if (current >= target) {
           current = target;
           clearInterval(timer);
+          if (index === targetNumbers.length - 1) {
+            // Animation complete, allow re-triggering after a delay
+            const timeout = setTimeout(() => {
+              setIsAnimating(false);
+            }, 500);
+            animationTimeouts.current.push(timeout);
+          }
         }
         setAnimatedNumbers(prev => {
           const newNumbers = [...prev];
@@ -74,9 +94,9 @@ const StatsSection: React.FC = () => {
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[0]}</span>+
                 </p>
-                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
-                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Manufacturing facilities automated</p>
-                <a target="_blank" className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} href="#portfolio">
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} />
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}>Manufacturing facilities automated</p>
+                <a target="_blank" className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} href="#portfolio">
                   <p className="text-md text-blue-400 font-bold">View our portfolio</p>
                   <ArrowUpRight size={18} className="mt-1 text-blue-400" />
                 </a>
@@ -86,16 +106,16 @@ const StatsSection: React.FC = () => {
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[1]}</span>+
                 </p>
-                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
-                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Automation projects completed</p>
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} />
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}>Automation projects completed</p>
               </div>
 
               <div className="flex flex-col w-full lg:w-1/3 md:mb-0 mb-0 gap-1 lg:gap-4">
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[2]}</span>+
                 </p>
-                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
-                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Custom automation systems developed</p>
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} />
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}>Custom automation systems developed</p>
               </div>
             </div>
           </div>
