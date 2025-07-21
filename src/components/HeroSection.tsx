@@ -1,34 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FlipText } from '@/components/ui/flip-text';
+import { FlipWords } from '@/components/ui/flip-words';
 
-// MorphingText component with FlipText animation
-const MorphingText = ({ texts, className }: { texts: string[], className: string }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [key, setKey] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-      setKey(prev => prev + 1); // Force re-render for animation
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [texts.length]);
-
-  return (
-    <FlipText
-      key={key}
-      word={texts[currentIndex]}
-      className={className}
-      duration={0.6}
-      delayMultiple={0.1}
-      framerProps={{
-        hidden: { rotateX: -90, opacity: 0 },
-        visible: { rotateX: 0, opacity: 1 },
-      }}
-    />
-  );
-};
 const HeroSection = ({ onContactClick }: { onContactClick: () => void }) => {
   const words = ['Automation', 'Consulting', 'Education', 'Training'];
 
@@ -43,9 +15,10 @@ const HeroSection = ({ onContactClick }: { onContactClick: () => void }) => {
               <div>
                 <p className="text-5xl md:text-7xl lg:text-8xl text-white text-center leading-[0.85]">We are not an AI</p>
                 <div className="h-auto flex w-full flex-row items-center justify-center">
-                  <MorphingText 
-                    texts={words}
-                    className="text-5xl md:text-7xl lg:text-8xl text-blue-400 italic leading-[0.85] text-center"
+                  <FlipWords 
+                    words={words}
+                    duration={2500}
+                    className="text-5xl md:text-7xl lg:text-8xl text-blue-400 italic leading-[0.85] text-center font-normal"
                   />
                 </div>
                 <p className="text-5xl md:text-7xl lg:text-8xl w-full text-white text-center leading-[0.85]">Company</p>
