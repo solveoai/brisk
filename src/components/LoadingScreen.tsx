@@ -35,7 +35,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     phase === 'moveToHeader' &&
       'top-4 left-4 md:top-4 md:left-8 lg:top-4 lg:left-12 transform translate-x-0 translate-y-0 scale-100',
     phase === 'fadeOut' &&
-      'top-4 left-4 md:top-4 md:left-8 lg:top-4 lg:left-12 transform translate-x-0 translate-y-0 scale-100 opacity-0',
+      'top-4 left-4 md:top-4 md:left-10 lg:top-4 lg:left-12 transform translate-x-0 translate-y-0 scale-100 opacity-0',
   ]
     .filter(Boolean)
     .join(' ');
