@@ -18,27 +18,22 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
     // Logo animation sequence
     const timer2 = setTimeout(() => {
-      setAnimationPhase('logoScale');
-    }, 1000);
-
-    const timer3 = setTimeout(() => {
       setAnimationPhase('moveToHeader');
     }, 2000);
 
-    const timer4 = setTimeout(() => {
+    const timer3 = setTimeout(() => {
       setAnimationPhase('fadeOut');
-    }, 2800);
+    }, 2500);
 
-    const timer5 = setTimeout(() => {
+    const timer4 = setTimeout(() => {
       onComplete();
-    }, 3500);
+    }, 3200);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
       clearTimeout(timer4);
-      clearTimeout(timer5);
     };
   }, [onComplete]);
 
@@ -49,23 +44,20 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
       {/* Brisk Automations Logo - Using actual Logo component */}
       <div 
-        className={`absolute transition-all duration-1000 ease-in-out transform ${
+        className={`absolute transition-all duration-700 ease-in-out ${
           logoVisible ? 'opacity-100' : 'opacity-0'
         } ${
-          animationPhase === 'logoFadeIn' || animationPhase === 'logoScale' ? 
-            'inset-0 flex items-center justify-center' :
+          animationPhase === 'logoFadeIn' ? 
+            'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' :
           animationPhase === 'moveToHeader' ?
-            'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0' :
-            'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0 opacity-0'
-        } ${
-          animationPhase === 'logoScale' ? 'scale-150' : 
-          animationPhase === 'moveToHeader' || animationPhase === 'fadeOut' ? 'scale-100' : 'scale-140'
+            'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0' :
+            'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0 opacity-0'
         }`}
       >
         <Logo 
-          className="w-64 h-16" 
+          className="w-48 h-12" 
           variant="light"
-          animated={logoVisible && (animationPhase === 'logoFadeIn' || animationPhase === 'logoScale')}
+          animated={logoVisible && animationPhase === 'logoFadeIn'}
         />
       </div>
 
