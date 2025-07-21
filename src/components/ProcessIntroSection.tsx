@@ -1,54 +1,96 @@
-import React, { useEffect, useRef, useState } from 'react';
+You are given a task to integrate an existing React component in the codebase
 
-const ProcessIntroSection: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+The codebase should support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.5 }
-    );
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+Determine the default path for components and styles. 
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+flip-text.tsx
+"use client";
 
-    return () => observer.disconnect();
-  }, []);
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
+import { cn } from "@/lib/utils";
+
+interface FlipTextProps {
+  word: string;
+  duration?: number;
+  delayMultiple?: number;
+  framerProps?: Variants;
+  className?: string;
+}
+
+function FlipText({
+  word,
+  duration = 0.5,
+  delayMultiple = 0.08,
+  framerProps = {
+    hidden: { rotateX: -90, opacity: 0 },
+    visible: { rotateX: 0, opacity: 1 },
+  },
+  className,
+}: FlipTextProps) {
   return (
-    <div className="snap-always snap-center min-h-screen" ref={sectionRef}>
-      <div className="relative h-screen min-h-screen w-full flex">
-        <div className="w-full h-full">
-          <div className="box-border w-full h-screen min-h-screen flex flex-col justify-center items-center text-white px-4 md:px-8 lg:px-12">
-            
-            {/* Main content */}
-            <div className="w-full max-w-6xl mx-auto text-center">
-              <p className={`text-4xl md:text-6xl lg:text-7xl leading-tight mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <span className="text-white">We spend our days guiding manufacturers through our 3-step </span>
-                <span className="text-blue-400 italic">Automation Transformation </span>
-                <span className="text-white">Journey.</span>
-              </p>
-              
-              {/* Clean simple visual */}
-              <div className="flex justify-center">
-                <div className={`relative transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-600/50 border border-blue-400/40 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-400/40 to-blue-500/60 flex items-center justify-center">
-                      <span className="text-white text-lg font-medium">Journey</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="flex justify-center space-x-2">
+      <AnimatePresence mode="wait">
+        {word.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={framerProps}
+            transition={{ duration, delay: i * delayMultiple }}
+            className={cn("origin-center drop-shadow-sm", className)}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </AnimatePresence>
     </div>
   );
-};
+}
 
-export default ProcessIntroSection;
+export { FlipText };
+
+demo.tsx
+import { FlipText } from "@/components/ui/flip-text";
+
+export function FlipTextDemo() {
+  return (
+    <FlipText
+      className="text-4xl font-bold -tracking-widest text-black dark:text-white md:text-7xl md:leading-[5rem]"
+      word="Flip Text"
+    />
+  );
+}
+
+```
+
+Install NPM dependencies:
+```bash
+framer-motion
+```
+
+Implementation Guidelines
+ 1. Analyze the component structure and identify all required dependencies
+ 2. Review the component's argumens and state
+ 3. Identify any required context providers or hooks and install them
+ 4. Questions to Ask
+ - What data/props will be passed to this component?
+ - Are there any specific state management requirements?
+ - Are there any required assets (images, icons, etc.)?
+ - What is the expected responsive behavior?
+ - What is the best place to use this component in the app?
+
+Steps to integrate
+ 0. Copy paste all the code above in the correct directories
+ 1. Install external dependencies
+ 2. Fill image assets with Unsplash stock images you know exist
+ 3. Use lucide-react icons for svgs or logos if component requires them
