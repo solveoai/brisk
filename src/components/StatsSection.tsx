@@ -4,28 +4,30 @@ import { ArrowUpRight } from 'lucide-react';
 const StatsSection: React.FC = () => {
   const [animatedNumbers, setAnimatedNumbers] = useState([0, 0, 0]);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const targetNumbers = [500, 150, 50];
   const sectionRef = useRef<HTMLDivElement>(null);
-  const timersRef = useRef<NodeJS.Timeout[]>([]); // Track all intervals
+  const timersRef = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
           setHasAnimated(true);
           animateNumbers();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
+    const pageWrapper = document.getElementById('page-wrapper');
+    if (pageWrapper && sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
     return () => {
       observer.disconnect();
-      // Clear all running timers on unmount
       timersRef.current.forEach(clearInterval);
     };
   }, [hasAnimated]);
@@ -33,19 +35,28 @@ const StatsSection: React.FC = () => {
   const animateNumbers = () => {
     targetNumbers.forEach((target, index) => {
       let current = 0;
-      const increment = target / 50;
+      const duration = 2000; // 2 seconds
+      const steps = 60; // 60 steps for smooth animation
+      const increment = target / steps;
+      const stepTime = duration / steps;
+      
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
           current = target;
           clearInterval(timer);
+          // Remove timer from tracking array
+          const timerIndex = timersRef.current.indexOf(timer);
+          if (timerIndex > -1) {
+            timersRef.current.splice(timerIndex, 1);
+          }
         }
         setAnimatedNumbers(prev => {
           const newNumbers = [...prev];
           newNumbers[index] = Math.floor(current);
           return newNumbers;
         });
-      }, 50);
+      }, stepTime);
       timersRef.current.push(timer);
     });
   };
@@ -95,13 +106,13 @@ const StatsSection: React.FC = () => {
                   <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                     <span>{stat.number}</span>+
                   </p>
-                  <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
-                  <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>{stat.label}</p>
+                  <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`} />
+                  <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>{stat.label}</p>
                   {stat.link && (
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}
+                      className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                       href={stat.link}
                     >
                       <p className="text-md text-blue-400 font-bold">View our portfolio</p>
