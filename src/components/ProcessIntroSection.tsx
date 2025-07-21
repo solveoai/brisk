@@ -23,7 +23,7 @@ const TransformationJourneySection: React.FC<TransformationJourneySectionProps> 
         <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
           
           {/* Main heading - centered like in image */}
-          <div className="text-center mb-24">
+          <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-[-0.03em]">
               <span className="text-white">We put </span>
               <span className="text-blue-400">automation at </span>
@@ -32,88 +32,46 @@ const TransformationJourneySection: React.FC<TransformationJourneySectionProps> 
               <span className="text-blue-400">everything </span>
               <span className="text-white">we do.</span>
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl mt-8 font-light">
-              Your trusted partner in becoming an automation-first manufacturing company.
+            <p className="text-gray-500 text-base md:text-lg mt-8 font-light">
+              Free Analysis • Personalized Transformation Roadmap
             </p>
           </div>
 
           {/* Clean form section with document visual */}
           <div className="max-w-4xl mx-auto">
             {!isSubmitted ? (
-              <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+              <div className="max-w-2xl mx-auto text-center">
+                <p className="text-blue-400 text-xs font-medium uppercase tracking-widest mb-8">
+                  FREE ANALYSIS
+                </p>
                 
-                {/* Left side - Form */}
-                <div className="flex-1 w-full">
-                  <div className="mb-6">
-                    <p className="text-blue-400 text-xs font-medium uppercase tracking-widest mb-4">
-                      FREE ANALYSIS
-                    </p>
-                    <h3 className="text-2xl md:text-3xl text-white font-light leading-tight">
-                      Get your personalized transformation roadmap
-                    </h3>
-                  </div>
-
-                  <div className="space-y-3">
-                    <input
-                      type="url"
-                      value={website}
-                      onChange={(e) => setWebsite(e.target.value)}
-                      placeholder="Your business website"
-                      className="w-full px-5 py-3.5 bg-transparent border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400/50 transition-all duration-300 text-sm"
-                    />
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your email"
-                      className="w-full px-5 py-3.5 bg-transparent border border-gray-700/50 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-400/50 transition-all duration-300 text-sm"
-                      onKeyPress={(e) => {
-                        if (e.key === 'Enter') {
-                          handleSubmit();
-                        }
-                      }}
-                    />
-                    <button
-                      onClick={handleSubmit}
-                      disabled={!email || !website}
-                      className={`
-                        w-full px-6 py-3.5 rounded-lg font-light text-sm transition-all duration-300 flex items-center justify-center gap-2
-                        ${email && website
-                          ? 'bg-blue-400/10 text-blue-400 border border-blue-400/30 hover:bg-blue-400/20'
-                          : 'bg-transparent text-gray-600 border border-gray-700/30 cursor-not-allowed'
-                        }
-                      `}
-                    >
-                      Get Roadmap
-                      <ArrowUpRight size={16} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Right side - Document visual */}
-                <div className="hidden lg:block">
-                  <div className="relative">
-                    {/* Document representation */}
-                    <div className="w-64 h-80 bg-gradient-to-br from-gray-800/20 to-gray-900/20 rounded-lg border border-gray-700/30 p-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <FileText className="w-5 h-5 text-blue-400/60" />
-                        <div className="h-2 w-20 bg-gray-700/30 rounded-full"></div>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="h-2 w-full bg-gray-700/20 rounded-full"></div>
-                        <div className="h-2 w-4/5 bg-gray-700/20 rounded-full"></div>
-                        <div className="h-2 w-full bg-gray-700/20 rounded-full"></div>
-                        <div className="h-2 w-3/4 bg-gray-700/20 rounded-full"></div>
-                        <div className="h-2 w-5/6 bg-gray-700/20 rounded-full"></div>
-                      </div>
-                      <div className="mt-8 space-y-2">
-                        <div className="h-8 w-full bg-blue-400/10 rounded border border-blue-400/20"></div>
-                        <div className="h-8 w-full bg-gray-700/10 rounded border border-gray-700/20"></div>
-                      </div>
-                    </div>
-                    {/* Floating accent */}
-                    <div className="absolute -top-2 -right-2 w-16 h-16 bg-blue-400/5 rounded-lg"></div>
-                  </div>
+                <div className="space-y-4 max-w-md mx-auto">
+                  <input
+                    type="url"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    placeholder="Your business website"
+                    className="w-full px-5 py-4 bg-transparent border border-gray-700/30 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-400/50 transition-all duration-300"
+                  />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email"
+                    className="w-full px-5 py-4 bg-transparent border border-gray-700/30 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-blue-400/50 transition-all duration-300"
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSubmit();
+                      }
+                    }}
+                  />
+                  <button
+                    onClick={handleSubmit}
+                    className="w-full px-6 py-4 rounded-lg font-normal bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    Get Roadmap
+                    <ArrowUpRight size={18} />
+                  </button>
                 </div>
               </div>
             ) : (
