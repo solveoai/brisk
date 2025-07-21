@@ -19,7 +19,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     // Logo animation sequence
     const timer2 = setTimeout(() => {
       setAnimationPhase('moveToHeader');
-    }, 200);
+    }, 2000);
 
     const timer3 = setTimeout(() => {
       setAnimationPhase('fadeOut');
