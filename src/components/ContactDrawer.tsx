@@ -232,6 +232,7 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
                 >
                   Send inquiry
                 </button>
+              </form>
               </div>
               <div className="h-[100px] w-full"></div>
             </div>
