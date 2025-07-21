@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { BlurText } from '@/components/ui/animated-blur-text';
 
-// Simple fade animation for morphing text
-const MorphingText = ({ texts, className }) => {
+// BlurText morphing animation
+const MorphingText = ({ texts, className }: { texts: string[], className: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-        setIsAnimating(false);
-      }, 200);
-    }, 2500);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+      setKey(prev => prev + 1); // Force re-render for animation
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [texts.length]);
 
   return (
-    <div className={`${className} transition-all duration-300 ${
-      isAnimating ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
-    }`}>
-      {texts[currentIndex]}
-    </div>
+    <BlurText
+      key={key}
+      text={texts[currentIndex]}
+      className={className}
+      delay={100}
+      animateBy="words"
+      direction="bottom"
+      stepDuration={0.4}
+    />
   );
 };
-const HeroSection = ({ onContactClick }) => {
+const HeroSection = ({ onContactClick }: { onContactClick: () => void }) => {
   const words = ['Automation', 'Consulting', 'Education', 'Training'];
 
   return (
