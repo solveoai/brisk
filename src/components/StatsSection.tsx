@@ -75,8 +75,8 @@ const StatsSection: React.FC = () => {
                   <span>{animatedNumbers[0]}</span>+
                 </p>
                 <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
-                <p className={text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}}>Manufacturing facilities automated</p>
-                <a target="_blank" className={decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} href="#portfolio">
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Manufacturing facilities automated</p>
+                <a target="_blank" className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} href="#portfolio">
                   <p className="text-md text-blue-400 font-bold">View our portfolio</p>
                   <ArrowUpRight size={18} className="mt-1 text-blue-400" />
                 </a>
@@ -87,7 +87,7 @@ const StatsSection: React.FC = () => {
                   <span>{animatedNumbers[1]}</span>+
                 </p>
                 <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
-                <p className={text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}}>Automation projects completed</p>
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Automation projects completed</p>
               </div>
 
               <div className="flex flex-col w-full lg:w-1/3 md:mb-0 mb-0 gap-1 lg:gap-4">
@@ -95,7 +95,7 @@ const StatsSection: React.FC = () => {
                   <span>{animatedNumbers[2]}</span>+
                 </p>
                 <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
-                <p className={text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}}>Custom automation systems developed</p>
+                <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Custom automation systems developed</p>
               </div>
             </div>
           </div>
