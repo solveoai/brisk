@@ -70,21 +70,14 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
         
         .wordmark .name {
           font-weight: 700;
-          color: #3b82f6;
-        }
-        
-        .wordmark .name.dark {
-          color: #3b82f6;
+          color: var(--brand);
         }
         
         .wordmark .tagline {
-          font-weight: 400;
+          font-weight: 700;
           color: var(--brand);
         }
         
-        .wordmark .tagline.dark {
-          color: var(--brand);
-        }
         
         @keyframes slide-in {
           to {

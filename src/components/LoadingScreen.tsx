@@ -49,11 +49,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
       {/* Brisk Automations Logo - Using actual Logo component */}
       <div 
-        className={`absolute transition-all duration-1000 ease-in-out transform flex items-center justify-center ${
+        className={`absolute transition-all duration-1000 ease-in-out transform ${
           logoVisible ? 'opacity-100' : 'opacity-0'
         } ${
           animationPhase === 'logoFadeIn' || animationPhase === 'logoScale' ? 
-            'inset-0' :
+            'inset-0 flex items-center justify-center' :
           animationPhase === 'moveToHeader' ?
             'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0' :
             'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0 opacity-0'
