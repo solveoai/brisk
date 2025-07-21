@@ -49,11 +49,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
       {/* Brisk Automations Logo - Using actual Logo component */}
       <div 
-        className={`absolute transition-all duration-1000 ease-in-out transform ${
+        className={`absolute transition-all duration-1000 ease-in-out transform flex items-center justify-center ${
           logoVisible ? 'opacity-100' : 'opacity-0'
         } ${
           animationPhase === 'logoFadeIn' || animationPhase === 'logoScale' ? 
-            'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' :
+            'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full' :
           animationPhase === 'moveToHeader' ?
             'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0' :
             'top-4 left-4 md:left-8 lg:left-12 translate-x-0 translate-y-0 opacity-0'
@@ -63,29 +63,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         }`}
       >
         <Logo 
-          className="w-48 h-12" 
+          className="w-64 h-16" 
           variant="light"
           animated={logoVisible && (animationPhase === 'logoFadeIn' || animationPhase === 'logoScale')}
         />
       </div>
 
-      {/* Simple loading text */}
-      <div className={`absolute bottom-20 left-1/2 -translate-x-1/2 transition-all duration-500 ${
-        animationPhase === 'logoFadeIn' || animationPhase === 'logoScale' ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <div className="flex items-center gap-3">
-          <div className="flex gap-1">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                style={{ animationDelay: `${i * 0.2}s` }}
-              />
-            ))}
-          </div>
-          <span className="text-gray-300 text-sm font-medium">Loading...</span>
-        </div>
-      </div>
     </div>
   );
 };
