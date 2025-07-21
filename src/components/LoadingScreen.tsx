@@ -23,7 +23,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
     const timer3 = setTimeout(() => {
       setAnimationPhase('fadeOut');
-    }, 1000);
+    }, 2000);
 
     const timer4 = setTimeout(() => {
       onComplete();
