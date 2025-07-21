@@ -55,5 +55,3 @@ const HeroSection = ({ onContactClick }) => {
   );
 };
 export default HeroSection;
-
-keep everything the same chagne the swapping text animation the the compoennt the training automation etc that part
