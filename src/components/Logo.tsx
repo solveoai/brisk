@@ -28,7 +28,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
           --brand: ${brandColor};
           --blade-w: 1.65em;
           --blade-h: 0.9em;
-          --mark-width: 1.2em; /* Reduced from default to make mark narrower */
+          --mark-width: 0.8em; /* Much narrower mark */
           --cut: 53.2%;
           --gap: 0.1em;
           --slide-dur: 0.5s;
@@ -69,7 +69,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
         }
         
         .wordmark .name {
-          font-weight: 700;
+          font-weight: 400;
           color: var(--brand);
         }
         
