@@ -55,7 +55,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
         }
         
         .blade-2.animate {
-          animation-delay: 0.2s;
+          animation-delay: 0.3s;
         }
         
         .wordmark {
@@ -65,7 +65,7 @@ const Logo: React.FC<LogoProps> = ({ className = "w-36 h-8", variant = 'light', 
           font-size: 1em;
           line-height: 1em;
           opacity: ${animated ? '0' : '1'};
-          animation: ${animated ? 'fade-in-text 0.6s ease-out 0.8s forwards' : 'none'};
+          animation: ${animated ? 'fade-in-text 0.8s ease-out 1.2s forwards' : 'none'};
         }
         
         .wordmark .name {

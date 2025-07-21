@@ -19,15 +19,15 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     // Logo animation sequence
     const timer2 = setTimeout(() => {
       setAnimationPhase('moveToHeader');
-    }, 3000);
+    }, 4000);
 
     const timer3 = setTimeout(() => {
       setAnimationPhase('fadeOut');
-    }, 3800);
+    }, 4800);
 
     const timer4 = setTimeout(() => {
       onComplete();
-    }, 4500);
+    }, 5500);
 
     return () => {
       clearTimeout(timer1);
@@ -48,7 +48,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           logoVisible ? 'opacity-100' : 'opacity-0'
         } ${
           animationPhase === 'logoFadeIn' ? 
-            'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-x-16 scale-150' :
+            'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 translate-x-8 scale-150' :
           animationPhase === 'moveToHeader' ?
             'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0 scale-100' :
             'top-4 left-4 md:left-8 lg:left-12 transform translate-x-0 translate-y-0 scale-100 opacity-0'
