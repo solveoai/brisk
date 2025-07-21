@@ -74,7 +74,7 @@ const StatsSection: React.FC = () => {
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[0]}</span>+
                 </p>
-                <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
                 <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Manufacturing facilities automated</p>
                 <a target="_blank" className={`decoration-none flex text-md flex-row items-center gap-1 cursor-pointer transition-opacity duration-1000 delay-500 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} href="#portfolio">
                   <p className="text-md text-blue-400 font-bold">View our portfolio</p>
@@ -86,7 +86,7 @@ const StatsSection: React.FC = () => {
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[1]}</span>+
                 </p>
-                <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
                 <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Automation projects completed</p>
               </div>
 
@@ -94,7 +94,7 @@ const StatsSection: React.FC = () => {
                 <p className="lg:text-8xl md:text-7xl text-6xl tracking-widest">
                   <span>{animatedNumbers[2]}</span>+
                 </p>
-                <hr className={border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}} />
+                <hr className={`border-blue-600 border-1 md:my-4 my-0 transition-opacity duration-1000 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`} />
                 <p className={`text-lg text-white transition-opacity duration-1000 delay-300 ${hasAnimated ? 'opacity-100' : 'opacity-0'}`}>Custom automation systems developed</p>
               </div>
             </div>
