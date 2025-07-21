@@ -49,7 +49,8 @@ const ProcessSteps: React.FC = () => {
     {
       number: "01",
       title: "Audit",
-      subtitle: "We analyze your entire operation to uncover hidden inefficiencies and profit leaks.",
+      mainPhrase: "your manufacturing processes.",
+      subtitle: "We analyze every workflow to uncover hidden inefficiencies and profit leaks.",
       icon: (
         <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
           <circle cx="48" cy="48" r="36" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
@@ -62,7 +63,8 @@ const ProcessSteps: React.FC = () => {
     {
       number: "02",
       title: "Implement",
-      subtitle: "We deploy custom automation systems that scale your output without disruption.",
+      mainPhrase: "automation solutions.",
+      subtitle: "We deploy custom systems that scale your production without disruption.",
       icon: (
         <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
           <rect x="24" y="24" width="48" height="48" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
@@ -75,7 +77,8 @@ const ProcessSteps: React.FC = () => {
     {
       number: "03",
       title: "Accelerate",
-      subtitle: "We transform your operations to achieve measurable results in 90 days.",
+      mainPhrase: "business growth.",
+      subtitle: "We transform your company to achieve measurable ROI in 90 days.",
       icon: (
         <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
           <path d="M48 24 L66 48 L48 72 L30 48 Z" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
@@ -146,7 +149,7 @@ const ProcessSteps: React.FC = () => {
               }`}>
                 <span className="text-white">We </span>
                 <span className="text-blue-400">{steps[currentStep]?.title} </span>
-                <span className="text-white">your operations.</span>
+                <span className="text-white">{steps[currentStep]?.mainPhrase}</span>
               </h2>
 
               {/* Subtitle */}
