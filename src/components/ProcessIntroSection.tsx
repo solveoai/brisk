@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-const PartnershipSection: React.FC<PartnershipSectionProps> = ({ onContactClick }) => {
+interface ProcessIntroSectionProps {
+  onContactClick: () => void;
+}
+
+const ProcessIntroSection: React.FC<ProcessIntroSectionProps> = ({ onContactClick }) => {
   return (
     <div className="snap-always snap-center min-h-screen">
       <div className="relative h-screen min-h-screen w-full flex">
