@@ -1,10 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
-interface PartnershipSectionProps {
-  onContactClick: () => void;
-}
-
 const PartnershipSection: React.FC<PartnershipSectionProps> = ({ onContactClick }) => {
   return (
     <div className="snap-always snap-center min-h-screen">
@@ -35,7 +31,6 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({ onContactClick 
                 onClick={onContactClick}
                 className="flex cursor-pointer mt-3 items-center gap-1 px-9 py-3 lg:px-10 lg:py-4 border-2 border-white rounded-full text-white bg-transparent hover:bg-blue-50 hover:text-gray-900 transition-all duration-300"
               >
-                <p className="text-3xl lg:text-4xl">Let's Partner Up</p>
                 <ArrowUpRight size={34} className="mt-1 transition-all duration-300" />
               </div>
             </div>
@@ -46,4 +41,4 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({ onContactClick 
   );
 };
 
-export default PartnershipSection;
+export default ProcessIntroSection;
