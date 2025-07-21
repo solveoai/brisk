@@ -146,27 +146,27 @@ const ProcessSteps: React.FC = () => {
               </div>
             </div>
 
-            {/* Bottom metrics */}
-            <div className={`mt-16 grid grid-cols-3 gap-8 transition-all duration-700 delay-200 ${
+            {/* Bottom visual element */}
+            <div className={`mt-16 flex justify-center transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
-              <div className={`text-center transition-all duration-500 ${
-                currentStep === 0 ? 'opacity-100' : 'opacity-30'
-              }`}>
-                <div className="text-3xl font-bold text-blue-400">$2.3M</div>
-                <div className="text-sm text-gray-500 mt-1">avg. savings found</div>
-              </div>
-              <div className={`text-center transition-all duration-500 ${
-                currentStep === 1 ? 'opacity-100' : 'opacity-30'
-              }`}>
-                <div className="text-3xl font-bold text-blue-400">5x</div>
-                <div className="text-sm text-gray-500 mt-1">productivity gain</div>
-              </div>
-              <div className={`text-center transition-all duration-500 ${
-                currentStep === 2 ? 'opacity-100' : 'opacity-30'
-              }`}>
-                <div className="text-3xl font-bold text-blue-400">90</div>
-                <div className="text-sm text-gray-500 mt-1">days to transform</div>
+              <div className="relative w-full max-w-2xl">
+                {/* Progress bar background */}
+                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${((currentStep + 1) / 3) * 100}%` }}
+                  />
+                </div>
+                
+                {/* Descriptive text */}
+                <div className="mt-8 text-center">
+                  <p className="text-gray-400 text-lg">
+                    {currentStep === 0 && "Deep analysis of your entire operation to identify profit leaks"}
+                    {currentStep === 1 && "Custom automation systems deployed with zero disruption"}
+                    {currentStep === 2 && "Full transformation with measurable ROI in just 3 months"}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
